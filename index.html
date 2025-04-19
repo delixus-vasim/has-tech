@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASTECH COMPUTERS - Excellence in Tech</title>
+    <!-- Add EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function() {
+        emailjs.init("xho79kzVDBPD-eEID");
+      })();
+    </script>
+    <style>
+        /* Main Layout & Reset */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Arial', sans-serif;
+        }
+
+        body {
+          background-color: #f5f5f5;
+          color: #333;
+          line-height: 1.6;
+        }
+
+        .container {
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 15px;
+        }
+
+        button {
+          cursor: pointer;
+        }
+
+        /* Header Styles - Updated with HASTECH colors */
+        .header {
+          background-color: #1e2736; /* Dark navy from logo */
+          color: white;
+          padding: 1rem 0;
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .logo-container {
+          display: flex;
+          align-items: center;
+        }
+        
+        .logo-image {
+          margin-right: 10px;
+        }
+
+        .logo-text {
+          display: flex;
+          flex-direction: column;
+          margin-left: 10px;
+        }
+
+        .company-name {
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+
+        .tagline {
+          font-size: 0.9rem;
+          color: #6db1e4; /* Light blue from logo */
+        }
+
+        .cart-btn {
+          display: flex;
+          align-items: center;
+          background-color: rgba(109, 177, 228, 0.2); /* Light blue from logo with transparency */
+          border: none;
+          border-radius: 4px;
+          padding: 0.5rem 1rem;
+          color: white;
+          transition: background-color 0.3s;
+        }
+
+        .cart-btn:hover {
+          background-color: rgba(109, 177, 228, 0.3);
+        }
+
+        .cart-count {
+          background-color: white;
+          color: #1e2736; /* Dark navy from logo */
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          margin-left: 8px;
+        }
+
+        /* Main Content */
+        main {
+          padding: 2rem 0;
+        }
+
+        /* Contact Info Banner */
+        .contact-banner {
+          background-color: #1e2736; /* Dark navy from logo */
+          color: white;
+          padding: 1rem;
+          border-radius: 8px;
+          margin-bottom: 2rem;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .contact-banner .proprietor {
+          font-weight: bold;
+          margin-right: 1rem;
+        }
+
+        .contact-banner .contact-numbers {
+          display: flex;
+          align-items: center;
+        }
+
+        .contact-banner .contact-numbers span {
+          margin-right: 1rem;
+        }
+
+        /* Hero Section - Updated with HASTECH colors */
+        .hero {
+          background-color: #d4e6f6; /* Lighter blue for contrast */
+          border-radius: 8px;
+          padding: 2rem;
+          margin-bottom: 2rem;
+          text-align: center;
+        }
+
+        .hero h2 {
+          font-size: 2rem;
+          margin-bottom: 0.5rem;
+          color: #1e2736; /* Dark navy from logo */
+        }
+
+        .hero p {
+          color: #415569; /* Medium blue-gray */
+        }
+
+        /* Tab Navigation */
+        .tabs {
+          display: flex;
+          margin-bottom: 2rem;
+          border-radius: 8px;
+          overflow: hidden;
+        }
+
+        .tab {
+          padding: 1rem 2rem;
+          background-color: #e2e8f0;
+          border: none;
+          flex-grow: 1;
+          font-weight: bold;
+          transition: all 0.3s;
+        }
+
+        .tab.active {
+          background-color: #1e2736;
+          color: white;
+        }
+
+        .tab:hover:not(.active) {
+          background-color: #cbd5e1;
+        }
+
+        /* Product/Service Grid */
+        .product-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 1.5rem;
+          margin-bottom: 2rem;
+        }
+
+        /* Product Cards */
+        .product-card {
+          background-color: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          overflow: hidden;
+          transition: transform 0.3s, box-shadow 0.3s;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .product-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+
+        .product-content {
+          padding: 1.5rem;
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .product-title {
+          font-size: 1.25rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+          color: #1e2736;
+        }
+
+        .product-description {
+          color: #64748b;
+          margin-bottom: 1rem;
+          flex-grow: 1;
+        }
+
+        .product-price {
+          font-weight: bold;
+          color: #6db1e4;
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+        }
+
+        .view-details-btn {
+          background-color: #1e2736;
+          color: white;
+          border: none;
+          padding: 0.75rem 1rem;
+          border-radius: 4px;
+          font-weight: bold;
+          transition: background-color 0.3s;
+        }
+
+        .view-details-btn:hover {
+          background-color: #2d3748;
+        }
+
+        /* Detail View Section */
+        .detail-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+          margin-bottom: 2rem;
+          background-color: white;
+          border-radius: 8px;
+          padding: 1.5rem;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+          .detail-container {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .detail-image-container {
+          position: relative;
+        }
+
+        .detail-image {
+          width: 100%;
+          height: 400px;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+
+        .image-nav {
+          position: absolute;
+          bottom: 0.5rem;
+          right: 0.5rem;
+          display: flex;
+          gap: 0.5rem;
+        }
+
+        .image-dot {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: #cbd5e1;
+          border: none;
+        }
+
+        .image-dot.active {
+          background-color: #6db1e4;
+        }
+
+        .next-image-btn {
+          position: absolute;
+          top: 50%;
+          right: 1rem;
+          transform: translateY(-50%);
+          background-color: white;
+          border: none;
+          border-radius: 50%;
+          width: 36px;
+          height: 36px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+          font-size: 1.2rem;
+        }
+
+        .next-image-btn:hover {
+          background-color: #f8fafc;
+        }
+
+        .detail-content {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .detail-title {
+          font-size: 1.75rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+          color: #1e2736;
+        }
+
+        .detail-description {
+          color: #64748b;
+          margin-bottom: 1.5rem;
+        }
+
+        .configurations-title {
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin-bottom: 0.75rem;
+          color: #1e2736;
+        }
+
+        .config-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 0.75rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .config-option {
+          padding: 0.75rem;
+          border-radius: 4px;
+          border: 1px solid #e2e8f0;
+          cursor: pointer;
+          transition: all 0.3s;
+        }
+
+        .config-option:hover {
+          border-color: #cbd5e1;
+        }
+
+        .config-option.selected {
+          border-color: #6db1e4;
+          background-color: #d4e6f6;
+        }
+
+        .config-row {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 0.25rem;
+        }
+
+        .config-label {
+          font-weight: 600;
+        }
+
+        .config-price {
+          display: flex;
+          justify-content: space-between;
+          font-weight: bold;
+          color: #6db1e4;
+          margin-top: 0.5rem;
+          font-size: 1.2rem;
+        }
+
+        .add-to-cart-btn {
+          width: 100%;
+          padding: 0.75rem;
+          border-radius: 4px;
+          font-weight: bold;
+          text-align: center;
+          transition: all 0.3s;
+        }
+
+        .add-to-cart-btn.active {
+          background-color: #1e2736;
+          color: white;
+          border: none;
+        }
+
+        .add-to-cart-btn.active:hover {
+          background-color: #2d3748;
+        }
+
+        .add-to-cart-btn.disabled {
+          background-color: #e2e8f0;
+          color: #94a3b8;
+          cursor: not-allowed;
+          border: none;
+        }
+
+        .back-btn {
+          background-color: #64748b;
+          color: white;
+          border: none;
+          padding: 0.5rem 1rem;
+          border-radius: 4px;
+          margin-bottom: 1rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .back-btn:hover {
+          background-color: #475569;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+          position: fixed;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          width: 320px;
+          background-color: white;
+          box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+          z-index: 200;
+          padding: 1rem;
+          margin-top: 60px; /* Header height */
+          overflow-y: auto;
+          transform: translateX(100%);
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .cart-sidebar.open {
+          transform: translateX(0);
+        }
+
+        .cart-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1rem;
+          padding-bottom: 0.5rem;
+          border-bottom: 1px solid #e2e8f0;
+        }
+
+        .cart-close {
+          background: none;
+          border: none;
+          font-size: 1.2rem;
+          color: #64748b;
+        }
+
+        .cart-close:hover {
+          color: #334155;
+        }
+
+        .cart-empty {
+          color: #94a3b8;
+          text-align: center;
+          padding: 2rem 0;
+        }
+
+        .cart-item {
+          padding-bottom: 0.75rem;
+          margin-bottom: 0.75rem;
+          border-bottom: 1px solid #e2e8f0;
+        }
+
+        .cart-item-title {
+          font-weight: 600;
+          margin-bottom: 0.25rem;
+        }
+
+        .cart-item-specs {
+          font-size: 0.85rem;
+          color: #64748b;
+        }
+
+        .cart-item-price-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 0.5rem;
+        }
+
+        .cart-item-price {
+          font-weight: bold;
+        }
+
+        .remove-btn {
+          background: none;
+          border: none;
+          color: #ef4444;
+          font-size: 0.85rem;
+        }
+
+        .remove-btn:hover {
+          color: #b91c1c;
+          text-decoration: underline;
+        }
+
+        .cart-total {
+          display: flex;
+          justify-content: space-between;
+          font-weight: bold;
+          margin: 1rem 0;
+          padding-top: 0.5rem;
+          border-top: 1px solid #e2e8f0;
+        }
+
+        .checkout-form {
+          margin-top: 1rem;
+        }
+
+        .form-group {
+          margin-bottom: 0.75rem;
+        }
+
+        .form-label {
+          display: block;
+          font-size: 0.9rem;
+          font-weight: 500;
+          margin-bottom: 0.25rem;
+        }
+
+        .form-input {
+          width: 100%;
+          padding: 0.5rem;
+          border: 1px solid #e2e8f0;
+          border-radius: 4px;
+        }
+
+        .checkout-btn {
+          width: 100%;
+          background-color: #16a34a;
+          color: white;
+          border: none;
+          padding: 0.75rem;
+          border-radius: 4px;
+          font-weight: bold;
+          transition: background-color 0.3s;
+        }
+
+        .checkout-btn:hover {
+          background-color: #15803d;
+        }
+
+        .checkout-btn:disabled {
+          background-color: #94a3b8;
+          cursor: not-allowed;
+        }
+
+        /* Features Section */
+        .features {
+          background-color: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          padding: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .features h2 {
+          text-align: center;
+          font-size: 1.5rem;
+          margin-bottom: 1.5rem;
+          color: #1e2736;
+        }
+
+        .features-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+          .features-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .feature {
+          text-align: center;
+        }
+
+        .feature-icon {
+          width: 64px;
+          height: 64px;
+          background-color: #d4e6f6;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 0.75rem;
+          font-size: 1.5rem;
+        }
+
+        .feature h3 {
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+          color: #1e2736;
+        }
+
+        .feature p {
+          color: #64748b;
+          font-size: 0.9rem;
+        }
+
+        /* Address Section */
+        .address-section {
+          background-color: #1e2736;
+          color: white;
+          border-radius: 8px;
+          padding: 1.5rem;
+          margin-bottom: 2rem;
+          text-align: center;
+        }
+
+        .address-section h2 {
+          font-size: 1.25rem;
+          margin-bottom: 0.75rem;
+          color: #6db1e4;
+        }
+
+        .address-section p {
+          margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+          background-color: #1e2736;
+          color: white;
+          padding: 3rem 0 1.5rem;
+        }
+
+        .footer-container {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+          .footer-container {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .footer-column h3 {
+          font-size: 1.1rem;
+          margin-bottom: 0.75rem;
+          color: #6db1e4;
+        }
+
+        .footer-column p {
+          color: #94a3b8;
+          margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+          display: flex;
+          gap: 1rem;
+        }
+
+        .social-link {
+          color: #94a3b8;
+          text-decoration: none;
+        }
+
+        .social-link:hover {
+          color: white;
+        }
+
+        .footer-bottom {
+          text-align: center;
+          border-top: 1px solid #334155;
+          padding-top: 1.5rem;
+          color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const HasTechStore = () => {
+          const [cart, setCart] = useState([]);
+          const [activeTab, setActiveTab] = useState('laptops'); // 'laptops' or 'services'
+          const [selectedItem, setSelectedItem] = useState(null);
+          const [selectedConfig, setSelectedConfig] = useState(null);
+          const [currentImageIndex, setCurrentImageIndex] = useState(0);
+          const [orderEmail, setOrderEmail] = useState('');
+          const [showCart, setShowCart] = useState(false);
+          const [isSubmitting, setIsSubmitting] = useState(false);
+          const [errorMessage, setErrorMessage] = useState('');
+          const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'detail'
+
+          // Laptop data structure
+          const laptops = [
+            {
+              id: 101,
+              name: 'Pro Performer',
+              type: 'laptop',
+              basePrice: 39999.99,
+              images: [
+                '/api/placeholder/400/300',
+                '/api/placeholder/400/300',
+                '/api/placeholder/400/300'
+              ],
+              configurations: [
+                { 
+                  ram: '8GB', 
+                  storage: '256GB SSD', 
+                  processor: 'Intel i5', 
+                  priceModifier: 0 
+                },
+                { 
+                  ram: '16GB', 
+                  storage: '512GB SSD', 
+                  processor: 'Intel i7', 
+                  priceModifier: 8000 
+                },
+                { 
+                  ram: '32GB', 
+                  storage: '1TB SSD', 
+                  processor: 'Intel i9', 
+                  priceModifier: 20000 
+                }
+              ],
+              description: 'High-performance laptop for professionals and power users. Features a stunning display, long battery life, and powerful processing capabilities.'
+            },
+            {
+              id: 102,
+              name: 'Ultralight Traveler',
+              type: 'laptop',
+              basePrice: 29999.99,
+              images: [
+                '/api/placeholder/400/300',
+                '/api/placeholder/400/300',
+                '/api/placeholder/400/300'
+              ],
+              configurations: [
+                { 
+                  ram: '8GB', 
+                  storage: '256GB SSD', 
+                  processor: 'AMD Ryzen 5', 
+                  priceModifier: 0 
+                },
+                { 
+                  ram: '16GB', 
+                  storage: '512GB SSD', 
+                  processor: 'AMD Ryzen 7', 
+                  priceModifier: 6000 
+                }
+              ],
+              description: 'Lightweight and portable laptop perfect for travelers and remote workers. Weighing just 1.2kg with up to 15 hours of battery life.'
+            },
+            {
+              id: 103,
+              name: 'Gaming Beast',
+              type: 'laptop',
+              basePrice: 59999.99,
+              images: [
+                '/api/placeholder/400/300',
+                '/api/placeholder/400/300',
+                '/api/placeholder/400/300'
+              ],
+              configurations: [
+                { 
+                  ram: '16GB', 
+                  storage: '512GB SSD', 
+                  processor: 'AMD Ryzen 7', 
+                  gpu: 'NVIDIA RTX 3060',
+                  priceModifier: 0 
+                },
+                { 
+                  ram: '32GB', 
+                  storage: '1TB SSD', 
+                  processor: 'AMD Ryzen 9', 
+                  gpu: 'NVIDIA RTX 3070',
+                  priceModifier: 15000 
+                }
+              ],
+              description: 'Ultimate gaming experience with high refresh rate display, RGB keyboard, and powerful graphics capabilities.'
+            },
+            {
+              id: 104,
+              name: 'Business Elite',
+              type: 'laptop',
+              basePrice: 45999.99,
+              images: [
+                '/api/placeholder/400/300',
+                '/api/placeholder/400/300',
+                '/api/placeholder/400/300'
+              ],
+              configurations: [
+                { 
+                  ram: '16GB', 
+                  storage: '512GB SSD', 
+                  processor: 'Intel i7', 
+                  security: 'Standard',
+                  priceModifier: 0 
+                },
+                { 
+                  ram: '32GB', 
+                  storage: '1TB SSD', 
+                  processor: 'Intel i9', 
+                  security: 'Enhanced',
+                  priceModifier: 10000 
+                }
+              ],
+              description: 'Professional-grade laptop with enhanced security features, durable build quality, and enterprise-level performance.'
+            }
+          ];
+
+          // Service data structure
+          const services = [
+            {
+              id: 1,
+              name: 'Desktop & Laptop Servicing',
+              type: 'service',
+              basePrice: 499.99,
+              images: ['/api/placeholder/400/300'],
+              configurations: [
+                { 
+                  serviceType: 'Basic Diagnostics', 
+                  turnaround: '2-3 Days', 
+                  warranty: '30 Days', 
+                  priceModifier: 0 
+                },
+                { 
+                  serviceType: 'Advanced Repair', 
+                  turnaround: '3-5 Days', 
+                  warranty: '60 Days', 
+                  priceModifier: 300 
+                },
+                { 
+                  serviceType: 'Premium Service', 
+                  turnaround: '1-2 Days', 
+                  warranty: '90 Days', 
+                  priceModifier: 500 
+                }
+              ],
+              description: 'Complete diagnostics and repair services for desktops and laptops of all brands.'
+            },
+            {
+              id: 2,
+              name: 'System Upgrades & Maintenance',
+              type: 'service',
+              basePrice: 799.99,
+              images: ['/api/placeholder/400/300'],
+              configurations: [
+                { 
+                  serviceType: 'RAM Upgrade', 
+                  includes: 'Installation & Testing', 
+                  warranty: '1 Year', 
+                  priceModifier: 0 
+                },
+                { 
+                  serviceType: 'SSD Upgrade', 
+                  includes: 'Installation & Data Migration', 
+                  warranty: '2 Years', 
+                  priceModifier: 200 
+                },
+                { 
+                  serviceType: 'Full System Upgrade', 
+                  includes: 'Hardware & Software Updates', 
+                  warranty: '2 Years', 
+                  priceModifier: 1000 
+                }
+              ],
+              description: 'Enhance your system performance with our professional upgrade services.'
+            },
+            {
+              id: 3,
+              name: 'New Office Setups',
+              type: 'service',
+              basePrice: 2999.99,
+              images: ['/api/placeholder/400/300'],
+              configurations: [
+                { 
+                  serviceType: 'Small Office (1-5 PCs)', 
+                  includes: 'Network & Basic Software Setup', 
+                  support: '30 Days', 
+                  priceModifier: 0 
+                },
+                { 
+                  serviceType: 'Medium Office (6-15 PCs)', 
+                  includes: 'Network, Server & Software Setup', 
+                  support: '60 Days', 
+                  priceModifier: 3000 
+                },
+                { 
+                  serviceType: 'Large Office (16+ PCs)', 
+                  includes: 'Full IT Infrastructure Setup', 
+                  support: '90 Days', 
+                  priceModifier: 7000 
+                }
+              ],
+              description: 'Complete office setup services customized to your specific requirements.'
+            },
+            {
+              id: 4,
+              name: 'Demo & Renewed Systems',
+              type: 'service',
+              basePrice: 14999.99,
+              images: ['/api/placeholder/400/300'],
+              configurations: [
+                { 
+                  system: 'Basic Workstation', 
+                  specs: 'i3, 8GB RAM, 256GB SSD', 
+                  warranty: '6 Months', 
+                  priceModifier: 0 
+                },
+                { 
+                  system: 'Professional Desktop', 
+                  specs: 'i5, 16GB RAM, 512GB SSD', 
+                  warranty: '1 Year', 
+                  priceModifier: 5000 
+                },
+                { 
+                  system: 'Premium Workstation', 
+                  specs: 'i7, 32GB RAM, 1TB SSD', 
+                  warranty: '1 Year', 
+                  priceModifier: 15000 
+                }
+              ],
+              description: 'High-quality refurbished systems with A+ condition guarantee and warranty.'
+            },
+            {
+              id: 5,
+              name: 'Annual Maintenance Contracts',
+              type: 'service',
+              basePrice: 9999.99,
+              images: ['/api/placeholder/400/300'],
+              configurations: [
+                { 
+                  plan: 'Basic AMC', 
+                  coverage: 'Quarterly Maintenance', 
+                  response: '48 Hours', 
+                  priceModifier: 0 
+                },
+                { 
+                  plan: 'Standard AMC', 
+                  coverage: 'Bi-monthly Maintenance & Basic Repairs', 
+                  response: '24 Hours', 
+                  priceModifier: 5000 
+                },
+                { 
+                  plan: 'Premium AMC', 
+                  coverage: 'Monthly Maintenance & All Repairs', 
+                  response: 'Same Day', 
+                  priceModifier: 10000 
+                }
+              ],
+              description: 'Comprehensive maintenance contracts for businesses of all sizes. Price is per year for up to 10 systems.'
+            }
+          ];
+
+          // Combined items for the active tab
+          const items = activeTab === 'laptops' ? laptops : services;
+          
+          const viewItem = (item) => {
+            setSelectedItem(item);
+            setSelectedConfig(null);
+            setCurrentImageIndex(0);
+            setViewMode('detail');
+          };
+          
+          const backToGrid = () => {
+            setViewMode('grid');
+            setSelectedItem(null);
+            setSelectedConfig(null);
+          };
+
+          const addToCart = () => {
+            if (selectedItem && selectedConfig) {
+              const cartItem = {
+                id: Date.now(), // Unique ID for each cart item
+                ...selectedItem,
+                selectedConfig,
+                totalPrice: selectedItem.basePrice + selectedConfig.priceModifier
+              };
+              setCart([...cart, cartItem]);
+              // Show visual feedback
+              alert(`${selectedItem.type === 'laptop' ? 'Product' : 'Service'} added to cart!`);
+            } else {
+              alert('Please select a configuration');
+            }
+          };
+
+          const removeFromCart = (idToRemove) => {
+            setCart(cart.filter(item => item.id !== idToRemove));
+          };
+
+          const cycleImage = () => {
+            if (selectedItem && selectedItem.images.length > 1) {
+              setCurrentImageIndex((prevIndex) => 
+                (prevIndex + 1) % selectedItem.images.length
+              );
+            }
+          };
+
+          const submitOrder = (e) => {
+            e.preventDefault();
+            if (cart.length === 0) {
+              alert('Your cart is empty!');
+              return;
+            }
+
+            setIsSubmitting(true);
+            setErrorMessage('');
+
+            // Format the cart items for the email
+            const cartItemsList = cart.map(item => {
+              // Format configuration details based on the item type
+              let configDetails = '';
+              
+              if (item.type === 'laptop') {
+                configDetails = `RAM: ${item.selectedConfig.ram}, Storage: ${item.selectedConfig.storage}, Processor: ${item.selectedConfig.processor}`;
+                if (item.selectedConfig.gpu) {
+                  configDetails += `, GPU: ${item.selectedConfig.gpu}`;
+                }
+              } else {
+                // For services, dynamically get all config properties except priceModifier
+                configDetails = Object.entries(item.selectedConfig)
+                  .filter(([key]) => key !== 'priceModifier')
+                  .map(([key, value]) => `${key}: ${value}`)
+                  .join(', ');
+              }
+              
+              return `
+              ${item.type === 'laptop' ? 'Product' : 'Service'}: ${item.name}
+              Configuration: ${configDetails}
+              Price: ₹${item.totalPrice.toFixed(2)}
+              `;
+            }).join('\n');
+
+            const totalPrice = cart.reduce((total, item) => total + item.totalPrice, 0).toFixed(2);
+            
+            // Prepare email template parameters
+            const templateParams = {
+              to_name: 'Syed Shahabaz Ali',
+              from_name: 'HASTECH COMPUTERS Website Order System',
+              to_email: 'syedshahabaz@your-email.com', // Update with actual email
+              customer_email: orderEmail,
+              message: `
+                New Order/Service Request:
+                
+                Customer Email: ${orderEmail}
+                
+                Items Ordered:
+                ${cartItemsList}
+                
+                Total Order Amount: ₹${totalPrice}
+                
+                Order Date: ${new Date().toLocaleString()}
+              `
+            };
+
+            // Send email using EmailJS
+            emailjs.send('service_3hzdyth', 'template_dorn6wn', templateParams)
+              .then((response) => {
+                console.log('Email successfully sent!', response);
+                alert(`Your order has been submitted! We'll contact you at ${orderEmail} shortly.`);
+                
+                // Clear cart and email after submission
+                setCart([]);
+                setOrderEmail('');
+                setShowCart(false);
+              })
+              .catch((error) => {
+                console.error('Failed to send email:', error);
+                setErrorMessage('There was a problem submitting your order. Please try again or call us directly.');
+              })
+              .finally(() => {
+                setIsSubmitting(false);
+              });
+          };
+
+          const cartTotal = cart.reduce((total, item) => total + item.totalPrice, 0).toFixed(2);
+
+          // Format configuration details for display
+          const formatConfigDetails = (config) => {
+            if (!config) return [];
+            
+            return Object.entries(config)
+              .filter(([key]) => key !== 'priceModifier')
+              .map(([key, value]) => (
+                <div key={key} className="config-row">
+                  <span className="config-label">{key.charAt(0).toUpperCase() + key.slice(1)}:</span>
+                  <span>{value}</span>
+                </div>
+              ));
+          };
+
+          return (
+            <div>
+              {/* Header */}
+              <header className="header">
+                <div className="container header-container">
+                  <div className="logo-container">
+                    <div className="logo-image">
+                      <svg width="50" height="50" viewBox="0 0 200 200">
+                        <rect x="0" y="0" width="200" height="200" fill="#1e2736" rx="20" ry="20"/>
+                        <rect x="40" y="30" width="120" height="80" fill="white" rx="10" ry="10"/>
+                        <rect x="60" y="50" width="80" height="40" fill="#6db1e4" rx="5" ry="5"/>
+                        <path d="M 30 120 Q 100 180 170 120" stroke="#6db1e4" strokeWidth="15" fill="none"/>
+                        <path d="M 30 100 Q 100 160 170 100" stroke="#6db1e4" strokeWidth="10" fill="none"/>
+                        <path d="M 30 80 Q 100 140 170 80" stroke="#6db1e4" strokeWidth="5" fill="none"/>
+                      </svg>
+                    </div>
+                    <div className="logo-text">
+                      <h1 className="company-name">HASTECH COMPUTERS</h1>
+                      <span className="tagline">Excellence in Tech</span>
+                    </div>
+                  </div>
+                  <button 
+                    className="cart-btn"
+                    onClick={() => setShowCart(!showCart)}
+                  >
+                    <span>Cart</span>
+                    <span className="cart-count">{cart.length}</span>
+                  </button>
+                </div>
+              </header>
+
+              <main>
+                <div className="container">
+                  {/* Cart Sidebar */}
+                  <div className={`cart-sidebar ${showCart ? 'open' : ''}`}>
+                    <div className="cart-header">
+                      <h2>Your Cart</h2>
+                      <button 
+                        onClick={() => setShowCart(false)}
+                        className="cart-close"
+                      >
+                        ✕
+                      </button>
+                    </div>
+
+                    {cart.length === 0 ? (
+                      <p className="cart-empty">Your cart is empty</p>
+                    ) : (
+                      <>
+                        {cart.map((item) => {
+                          // Determine what to display based on item type
+                          let configDetails = '';
+                          
+                          if (item.type === 'laptop') {
+                            configDetails = `${item.selectedConfig.ram}, ${item.selectedConfig.storage}, ${item.selectedConfig.processor}`;
+                            if (item.selectedConfig.gpu) {
+                              configDetails += `, ${item.selectedConfig.gpu}`;
+                            }
+                          } else {
+                            // For services, get all properties except priceModifier
+                            configDetails = Object.entries(item.selectedConfig)
+                              .filter(([key]) => key !== 'priceModifier')
+                              .map(([key, value]) => `${key}: ${value}`)
+                              .join(', ');
+                          }
+                          
+                          return (
+                            <div key={item.id} className="cart-item">
+                              <h3 className="cart-item-title">{item.name}</h3>
+                              <p className="cart-item-specs">
+                                {configDetails}
+                              </p>
+                              <div className="cart-item-price-row">
+                                <p className="cart-item-price">₹{item.totalPrice.toFixed(2)}</p>
+                                <button 
+                                  onClick={() => removeFromCart(item.id)}
+                                  className="remove-btn"
+                                >
+                                  Remove
+                                </button>
+                              </div>
+                            </div>
+                          );
+                        })}
+                        
+                        <div className="cart-total">
+                          <span>Total:</span>
+                          <span>₹{cartTotal}</span>
+                        </div>
+                        
+                        <form onSubmit={submitOrder} className="checkout-form">
+                          <div className="form-group">
+                            <label htmlFor="email" className="form-label">
+                              Email for Order Confirmation
+                            </label>
+                            <input 
+                              type="email" 
+                              id="email"
+                              value={orderEmail}
+                              onChange={(e) => setOrderEmail(e.target.value)}
+                              className="form-input"
+                              required 
+                              disabled={isSubmitting}
+                            />
+                          </div>
+                          
+                          {errorMessage && (
+                            <p style={{ color: 'red', marginBottom: '10px', fontSize: '0.9rem' }}>
+                              {errorMessage}
+                            </p>
+                          )}
+                          
+                          <button 
+                            type="submit"
+                            className="checkout-btn"
+                            disabled={isSubmitting}
+                          >
+                            {isSubmitting ? 'Processing...' : `Checkout (₹${cartTotal})`}
+                          </button>
+                        </form>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Proprietor & Contact Banner */}
+                  <div className="contact-banner">
+                    <div className="proprietor">Proprietor: Syed Shahabaz Ali</div>
+                    <div className="contact-numbers">
+                      <span>📞 8660555143</span>
+                      <span>📞 9036180486</span>
+                    </div>
+                  </div>
+
+                  {/* Hero Section */}
+                  <div className="hero">
+                    <h2>Premium Laptops & Professional Services</h2>
+                    <p>Your one-stop solution for quality laptops and comprehensive computer services</p>
+                  </div>
+
+                  {/* Tab Navigation */}
+                  <div className="tabs">
+                    <button 
+                      className={`tab ${activeTab === 'laptops' ? 'active' : ''}`}
+                      onClick={() => {
+                        setActiveTab('laptops');
+                        setViewMode('grid');
+                        setSelectedItem(null);
+                      }}
+                    >
+                      Laptops
+                    </button>
+                    <button 
+                      className={`tab ${activeTab === 'services' ? 'active' : ''}`}
+                      onClick={() => {
+                        setActiveTab('services');
+                        setViewMode('grid');
+                        setSelectedItem(null);
+                      }}
+                    >
+                      Services
+                    </button>
+                  </div>
+
+                  {/* Content based on view mode */}
+                  {viewMode === 'grid' ? (
+                    <div className="product-grid">
+                      {items.map((item) => (
+                        <div key={item.id} className="product-card">
+                          <img 
+                            src={item.images[0]} 
+                            alt={item.name} 
+                            className="product-image"
+                          />
+                          <div className="product-content">
+                            <h3 className="product-title">{item.name}</h3>
+                            <p className="product-description">{item.description}</p>
+                            <p className="product-price">Starting at ₹{item.basePrice.toFixed(2)}</p>
+                            <button 
+                              className="view-details-btn"
+                              onClick={() => viewItem(item)}
+                            >
+                              View Details
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div>
+                      <button className="back-btn" onClick={backToGrid}>
+                        ← Back to {activeTab === 'laptops' ? 'Laptops' : 'Services'}
+                      </button>
+                      <div className="detail-container">
+                        <div className="detail-image-container">
+                          <img 
+                            src={selectedItem.images[currentImageIndex]} 
+                            alt={selectedItem.name} 
+                            className="detail-image"
+                          />
+                          
+                          {selectedItem.images.length > 1 && (
+                            <>
+                              <div className="image-nav">
+                                {selectedItem.images.map((_, index) => (
+                                  <button 
+                                    key={index} 
+                                    className={`image-dot ${index === currentImageIndex ? 'active' : ''}`}
+                                    onClick={() => setCurrentImageIndex(index)}
+                                  />
+                                ))}
+                              </div>
+                              
+                              <button 
+                                onClick={cycleImage}
+                                className="next-image-btn"
+                              >
+                                →
+                              </button>
+                            </>
+                          )}
+                        </div>
+                        
+                        <div className="detail-content">
+                          <h2 className="detail-title">{selectedItem.name}</h2>
+                          <p className="detail-description">{selectedItem.description}</p>
+                          
+                          <div>
+                            <h3 className="configurations-title">Select Configuration:</h3>
+                            <div className="config-grid">
+                              {selectedItem.configurations.map((config, index) => (
+                                <div 
+                                  key={index} 
+                                  className={`config-option ${selectedConfig === config ? 'selected' : ''}`}
+                                  onClick={() => setSelectedConfig(config)}
+                                >
+                                  {formatConfigDetails(config)}
+                                  <div className="config-price">
+                                    <span>Price:</span>
+                                    <span>₹{(selectedItem.basePrice + config.priceModifier).toFixed(2)}</span>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          <button 
+                            onClick={addToCart}
+                            className={`add-to-cart-btn ${selectedConfig ? 'active' : 'disabled'}`}
+                            disabled={!selectedConfig}
+                          >
+                            {selectedConfig 
+                              ? `Add to Cart - ₹${(selectedItem.basePrice + selectedConfig.priceModifier).toFixed(2)}` 
+                              : 'Select a configuration'}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Address Section */}
+                  <div className="address-section">
+                    <h2>Visit Our Store</h2>
+                    <p>📍 05, Akhil Shahi Complex, Bada Makan, MG Road, Channapatna – 562160</p>
+                  </div>
+
+                  {/* Features Section */}
+                  <div className="features">
+                    <h2>Why Choose HASTECH COMPUTERS?</h2>
+                    <div className="features-grid">
+                      <div className="feature">
+                        <div className="feature-icon">🛠️</div>
+                        <h3>Expert Technicians</h3>
+                        <p>Our team has years of experience repairing and upgrading all types of systems</p>
+                      </div>
+                      <div className="feature">
+                        <div className="feature-icon">⚡</div>
+                        <h3>Quick Turnaround</h3>
+                        <p>We understand the importance of your devices and work efficiently to get them back to you</p>
+                      </div>
+                      <div className="feature">
+                        <div className="feature-icon">💼</div>
+                        <h3>Business Solutions</h3>
+                        <p>Tailored IT services and solutions for businesses of all sizes</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </main>
+
+              <footer className="footer">
+                <div className="container">
+                  <div className="footer-container">
+                    <div className="footer-column">
+                      <h3>HASTECH COMPUTERS</h3>
+                      <p>Excellence in Tech since 2015.</p>
+                      <p>Providing quality computer sales and services in Channapatna region.</p>
+                    </div>
+                    <div className="footer-column">
+                      <h3>Contact Us</h3>
+                      <p>📞 8660555143 | 9036180486</p>
+                      <p>📧 syedshahabaz@your-email.com</p>
+                      <p>📍 05, Akhil Shahi Complex, Bada Makan, MG Road, Channapatna – 562160</p>
+                    </div>
+                    <div className="footer-column">
+                      <h3>Our Services</h3>
+                      <p>Desktop & Laptop Servicing</p>
+                      <p>System Upgrades & Maintenance</p>
+                      <p>New Office Setups</p>
+                      <p>Sales of Demo & Renewed Systems</p>
+                      <p>Annual Maintenance Contracts (AMC)</p>
+                    </div>
+                  </div>
+                  <div className="footer-bottom">
+                    <p>&copy; 2025 HASTECH COMPUTERS. All rights reserved.</p>
+                  </div>
+                </div>
+              </footer>
+            </div>
+          );
+        };
+
+        ReactDOM.render(<HasTechStore />, document.getElementById('root'));
+    </script>
+</body>
+</html>
